@@ -1,0 +1,15 @@
+.DS_Store
+.classpath
+.fossil-settings/
+.fslckout
+.idea/
+.mvn/
+.project
+.settings/
+Makefile
+dependency-reduced-pom.xml
+doc/
+javaraft.fossil
+javaraft.txt
+target/
+

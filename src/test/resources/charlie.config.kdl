@@ -1,0 +1,21 @@
+thisnode "Charlie" {
+    ip "localhost"
+    raftport "5554"
+    clientport "5555"
+}
+
+othernodes {
+    - "Bob" {
+        ip "localhost"
+        raftport "5552"
+        clientport "5553"
+    }
+    - "Alice" {
+        ip "localhost"
+        raftport "5550"
+        clientport "5551"
+    }
+}
+
+timeout milliseconds=4000
+dbFilename "charlie.sqlite"

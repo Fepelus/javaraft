@@ -1,0 +1,9 @@
+= Raft
+
+For pleasure, I implemented Ongaro and Ousterhout’s Raft paper.
+
+I wrote the raft algorithm itself in the `Core` class with all communication with the outside world coming in on a queue as `Event` objects and going out on a queue as `Command` objects. It was easy, then, to drive the implementation with tests without worrying about the real world.
+
+Then to flesh out the real world interactions, writing to a database, sending messages over the network, having a timer and so on: I just waved a little https://github.com/zeromq/jeromq[jeromq] and https://www.sqlite.org/index.html[SQLite] at it and left the rest to raw java. For the format of the config files I wanted to use https://kdl.dev/[KDL] but had to adapt the code of the closest https://github.com/kdl-org/kdl4j[library] I could find to what I wanted so I vendored the code into the src directory here.
+
+The application itself is the world’s simplest key-value store and is just an excuse to have a client do something. The code for the command-line client is in the same jar and `run-client.sh` and `run-server.sh` show how to run the two different `static void main` functions.
